@@ -1,69 +1,147 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Link2 } from 'lucide-react';
 
 export default function Home() {
+  const regulations = [
+    { title: 'Peraturan Pemilihan Raya IKM FF UI 2026', href: '#' },
+    { title: 'Petunjuk Teknis Tata Cara Pemungutan Suara', href: '#' },
+    { title: 'Ketetapan BPM FF UI Terkait Pemira', href: '#' },
+    { title: 'Panduan dan Kode Etik Kampanye Paslon', href: '#' },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.js
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="w-full max-w-7xl mx-auto flex flex-col gap-16 md:gap-28 py-6 md:py-8 px-4 sm:px-6 md:px-8 text-white overflow-x-hidden">
+      {/* 1. HERO SECTION */}
+      <section className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-10">
+        <div className="flex-1 flex flex-col gap-4 md:gap-5 w-full">
+          <div className="flex flex-col leading-none -space-y-1 md:-space-y-3">
+            <h1 className="font-cinzel text-4xl sm:text-6xl md:text-8xl font-bold tracking-wider leading-tight text-white drop-shadow-sm">
+              PEMIRA
+            </h1>
+            <span className="font-cinzel text-3xl sm:text-5xl md:text-6xl font-bold tracking-wider leading-tight text-white drop-shadow-sm">
+              IKM FF UI 2026
+            </span>
+          </div>
+          <p className="font-lato text-xs sm:text-sm md:text-base text-stone-100/90 leading-relaxed text-justify font-medium">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet
+            tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl euismod nunc. Sed euismod,
+            nunc ut laoreet tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl euismod nunc.
+          </p>
+          <p className="font-lato text-xs sm:text-sm md:text-base text-stone-100/90 leading-relaxed text-justify font-medium">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet
+            tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl euismod nunc. Sed euismod,
+            nunc ut laoreet tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl euismod nunc.
+          </p>
+          <div className="pt-2">
+            <Link
+              href="/bilik-suara"
+              className="inline-block bg-[#E78F81] hover:bg-[#d87c6e] text-white font-lato font-medium px-7 py-3 rounded-full shadow-lg transition-transform hover:scale-105 text-sm md:text-base"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              Menuju Bilik Suara
+            </Link>
+          </div>
+        </div>
+
+        {/* Logo Lingkaran Hero */}
+        <div className="w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 relative flex-shrink-0 flex items-center justify-center">
+          <div className="w-full h-full rounded-full bg-[#185343] border-4 border-[#277561] shadow-2xl p-4 sm:p-6 flex items-center justify-center">
+            <div className="w-full h-full rounded-full bg-[#FBF8EE] relative overflow-hidden p-3 sm:p-4 shadow-inner flex items-center justify-center">
+              <Image
+                src="/logo_pemira.png"
+                alt="Logo Pemira IKM FF UI"
+                width={200}
+                height={200}
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. TAGAR KAMI SECTION */}
+      <section className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10">
+        <div className="w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 relative flex-shrink-0 flex items-center justify-center">
+          <div className="w-full h-full rounded-full bg-[#185343] border-4 border-[#277561] shadow-2xl p-4 sm:p-6 flex items-center justify-center">
+            <div className="w-full h-full rounded-full bg-[#FBF8EE] relative overflow-hidden p-3 sm:p-4 shadow-inner flex items-center justify-center">
+              <Image
+                src="/logo_pemira.png"
+                alt="Tagar Pemira IKM FF UI"
+                width={200}
+                height={200}
+                className="object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex-1 flex flex-col gap-3 md:gap-4 w-full">
+          <h2 className="font-cinzel text-2xl sm:text-4xl md:text-5xl font-bold tracking-wider text-white">
+            TAGAR KAMI
+          </h2>
+          <h3 className="font-lato italic font-semibold text-stone-200 text-sm sm:text-base md:text-xl break-all sm:break-words">
+            #HarmoniDalamDemokrasiAksiDalamTransformasi
+          </h3>
+          <p className="font-lato text-xs sm:text-sm md:text-base text-stone-100/90 leading-relaxed font-medium text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet
+            tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl euismod nunc. Sed euismod,
+            nunc ut laoreet tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl euismod nunc.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* 3. MASKOT KAMI SECTION */}
+      <section className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-10">
+        <div className="flex-1 flex flex-col gap-3 md:gap-4 w-full">
+          <h2 className="font-cinzel text-2xl sm:text-4xl md:text-5xl font-bold tracking-wider text-white">
+            MASKOT KAMI
+          </h2>
+          <h3 className="font-baskerville italic text-stone-200 text-base sm:text-lg md:text-xl">
+            NIRVA
+          </h3>
+          <p className="font-lato text-xs sm:text-sm md:text-base text-stone-100/90 leading-relaxed font-bold text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet
+            tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl euismod nunc. Sed euismod,
+            nunc ut laoreet tincidunt, nunc nisl aliquam nisl, eget aliquam nunc nisl euismod nunc.
+          </p>
         </div>
-      </main>
+
+        {/* Gambar Maskot */}
+        <div className="w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 relative flex items-center justify-center flex-shrink-0">
+          <Image
+            src="/maskot_pemira.png"
+            alt="Maskot Pemira IKM FF UI"
+            width={320}
+            height={320}
+            className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      </section>
+
+      {/* 4. PERATURAN PEMIRA SECTION */}
+      <section className="flex flex-col gap-6 md:gap-8 pb-12 w-full">
+        <h2 className="font-cinzel text-2xl sm:text-4xl md:text-5xl font-bold tracking-wider text-center text-white">
+          PERATURAN PEMIRA
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 max-w-4xl mx-auto w-full">
+          {regulations.map((reg, index) => (
+            <a
+              key={index}
+              href={reg.href}
+              className="flex items-center gap-3 sm:gap-4 bg-[#FBF8EE] hover:bg-white text-slate-800 p-3 sm:p-4 rounded-xl shadow-md transition-all duration-200 hover:-translate-y-1 group border border-stone-200"
+            >
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-stone-200 flex items-center justify-center text-slate-700 group-hover:bg-[#E78F81] group-hover:text-white transition-colors flex-shrink-0">
+                <Link2 size={18} />
+              </div>
+              <span className="font-baskerville italic font-bold text-xs sm:text-sm md:text-base leading-snug">
+                {reg.title}
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

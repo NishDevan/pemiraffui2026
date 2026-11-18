@@ -1,26 +1,117 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .font-cinzel {
+    font-family: var(--font-cinzel), serif;
+  }
+  .font-baskerville {
+    font-family: var(--font-baskerville), serif;
+  }
+  .font-lato {
+    font-family: var(--font-lato), sans-serif;
   }
 }
 
+/* ============================================================ */
+/* KUMPULAN KEYFRAME ANIMASI ELEGAN */
+/* ============================================================ */
+
+/* 1. Transisi Muncul Lembut dari Bawah */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Efek Membal Pop-In untuk Modal Dialog */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.02) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 3. Efek Mengambang Halus (Maskot / Artwork) */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0.8deg);
+  }
+}
+
+/* 4. Efek Denyut Halus (Aksen Glow) */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(231, 143, 129, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(231, 143, 129, 0.85);
+  }
+}
+
+/* Class Helper Animasi */
+.animate-fade-in-up {
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pop-in {
+  animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Efek Hover Elevasi untuk Kartu & Tombol */
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+.hover-lift:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Kustomisasi Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(231, 143, 129, 0.6);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(231, 143, 129, 0.9);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-lato), sans-serif;
+  scroll-behavior: smooth;
+  background: linear-gradient(180deg, #1C464F 0%, #305862 30%, #546C76 65%, #A77C7C 100%);
+  min-height: 100vh;
 }

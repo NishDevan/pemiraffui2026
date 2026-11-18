@@ -1,0 +1,53 @@
+// use prisma-8
+
+// 1. Data Pemilih Tetap (DPT)
+model Dpt {
+  npm          String    @id
+  name         String
+  faculty      String    @default("Fakultas Farmasi")
+  studyProgram String
+  batch        String
+  hasVoted     Boolean   @default(false)
+  votedAt      DateTime?
+  createdAt    DateTime  @default(now()) @onCreate(now())
+  updatedAt    temporal.UpdatedAt
+}
+
+// 2. Daftar Kandidat
+model Candidate {
+  id            Int       @id @default(autoincrement())
+  orderNumber   Int
+  category      String
+  candidateName String
+  vision        String?
+  mission       String?
+  createdAt     DateTime  @default(now()) @onCreate(now())
+  updatedAt     temporal.UpdatedAt
+  votes         Vote[]
+}
+
+// 3. Kotak Suara Anonim
+model Vote {
+  id          Int       @id @default(autoincrement()) 
+  category    String
+  candidate   Candidate @relation(fields: [candidateId], references: [id])
+  candidateId Int
+  createdAt   DateTime  @default(now()) @onCreate(now())
+}
+
+// 4. Audit Logger
+model AuditLog {
+  id        Int      @id @default(autoincrement())
+  action    String
+  detail    String?
+  ipAddress String?
+  createdAt DateTime @default(now()) @onCreate(now())
+}
+
+// 5. Pengaturan Sistem Pemira (Status Buka/Tutup & Jadwal)
+model SystemSetting {
+  key       String  @id
+  value     String
+  createdAt DateTime @default(now()) @onCreate(now())
+  updatedAt temporal.UpdatedAt
+}
